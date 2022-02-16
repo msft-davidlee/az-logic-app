@@ -18,7 +18,7 @@ resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
   properties: {
     definition: {
       '$schema': 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#'
-      'content-version': '1.0.0.0'
+      'contentVersion': '1.0.0.0'
       'parameters': {
         '$connections': {
           type: 'Object'
