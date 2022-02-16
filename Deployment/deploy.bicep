@@ -21,6 +21,7 @@ resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
       'contentVersion': '1.0.0.0'
       'parameters': {
         '$connections': {
+          defaultValue: {}
           type: 'Object'
         }
       }
@@ -32,7 +33,7 @@ resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
       }
     }
     parameters: {
-      '$connections': {
+      '$connections': {        
         type: 'Object'
       }
     }
