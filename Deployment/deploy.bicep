@@ -4,15 +4,17 @@ param prefix string
 param branch string
 param version string
 
+var stackEnvironment = toLower(replace(environment, '_', ''))
+var stackName = '${prefix}${stackEnvironment}'
 var tags = {
   'stack-name': prefix
   'stack-version': version
-  'stack-environment': toLower(replace(environment, '_', ''))
+  'stack-environment': stackEnvironment
   'stack-branch': branch
 }
 
 resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
-  name: prefix
+  name: stackName
   tags: tags
   location: primary_location
   properties: {
@@ -33,7 +35,7 @@ resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
       }
     }
     parameters: {
-      '$connections': {        
+      '$connections': {
         type: 'Object'
       }
     }
