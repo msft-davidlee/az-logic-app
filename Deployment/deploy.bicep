@@ -25,12 +25,16 @@ resource logicapp 'Microsoft.Logic/workflows@2019-05-01' = {
         }
       }
       'triggers': {
-        'manual': {
-          'type': 'Request'
-          'kind': 'Http'
+        'http_request': {
+          type: 'Request'
+          kind: 'Http'
         }
       }
     }
-    parameters: {}
+    parameters: {
+      '$connections': {
+        type: 'Object'
+      }
+    }
   }
 }
