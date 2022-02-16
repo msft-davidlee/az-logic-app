@@ -2,10 +2,11 @@ param primary_location string = 'centralus'
 param environment string
 param prefix string
 param branch string
+param version string
 
 var tags = {
   'stack-name': prefix
-  'stack-version': '0'
+  'stack-version': version
   'stack-environment': toLower(replace(environment, '_', ''))
   'stack-branch': branch
 }
